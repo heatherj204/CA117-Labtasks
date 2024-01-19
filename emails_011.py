@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-
+#this is a test
 for email in sys.stdin:
     email = email.strip()
     #get the first name only
