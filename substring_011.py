@@ -9,4 +9,3 @@ for line in sys.stdin:
         print("True")
     else:
         print("False")
-        

@@ -26,3 +26,4 @@ for pas in sys.stdin:
     if sc > 0:
         total = total + 1
     print(total)
+    

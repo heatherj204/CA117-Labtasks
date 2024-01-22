@@ -2,10 +2,18 @@
 
 import sys
 
-# for num in sys.stdin:
-#     lst = []
-#     num = num.strip()
-#     num = num.split()
-#     lst.append(num)
-#     print(lst)
+lines = sys.stdin.readlines()
+water = int(lines[0])
+buckets = lines[1].split()
 
+sum = 0
+ans = 0
+stop = False
+for bucket in buckets:
+    if sum + int(bucket) <= water and stop is False:
+        ans += 1
+        sum += int(bucket)
+    else:
+        stop = True
+
+print(ans)
