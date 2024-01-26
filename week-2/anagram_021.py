@@ -15,3 +15,4 @@ for line in sys.stdin:
     else:
         anag = False
     print(anag)
+
