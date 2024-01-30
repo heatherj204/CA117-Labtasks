@@ -15,8 +15,8 @@ try:
             student = ' '.join(line[1:])
             marks.append(mark)
             students.append(student)
-except FileNotFoundError:
-        print(f'The file {file:s} could not be opened')
+except ValueError:
+        print(f'Invalid mark {line[0]:s} encountered. Skipping.')
 highest = 0
 person = 0
 counter = 0
