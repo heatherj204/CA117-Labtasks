@@ -1,16 +1,30 @@
 #!/usr/bin/env python3
-
+#this is not mine (poopy heads code <3)
 import sys
-multi3 = []
-sqr3 = []
 
+lines = sys.stdin.read().split()
 
-for i in range(8):
-    if i % 3 == 0 and i != 0:
-        multi3.append(i)
-        square3 = i*i
-        sqr3.append(square3)
-    if i % 3
+def is_fair(lines):
+    i = 1
+    while i < len(lines) - 1:
+        prev_no = int(lines[i-1].strip())
+        guess = lines[i].strip()
+        next_no = int(lines[i + 1].strip())
+        correct = None
+        if guess == "higher":
+            correct = prev_no < next_no
+        elif guess == "lower":
+            correct = prev_no > next_no
+        # print(prev_no, guess, next_no, correct)
+        if not correct:
+            return False
+        i += 2
 
-print(f'Multiples of 3: {multi3}')
-print(f'Multiples of 3 squared: {sqr3}')
+    return True
+
+fair = is_fair(lines)
+
+if fair:
+    print("Bert can be trusted")
+else:
+    print("Bert is not to be trusted")
