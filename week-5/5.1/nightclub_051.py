@@ -14,5 +14,5 @@ for line in sys.stdin:
             refuse += 1
     elif line[0] == 'leave':
         people = people - int(line[1])
-        
+
 print(refuse)
