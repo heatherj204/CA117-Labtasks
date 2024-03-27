@@ -1,1 +1,1 @@
-# CA117-Labtasks
+# CA117-Labtasks and some of the lectures
