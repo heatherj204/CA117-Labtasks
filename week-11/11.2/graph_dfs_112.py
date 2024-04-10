@@ -31,6 +31,51 @@ class Graph(object):
         average = total / len(degreelist)
         return average
 
+class DFSPaths(object):
+
+    def __init__(self, g, s) -> None:
+        self.g = g
+        self.s = s
+        # creaste a list to record where we have been so far
+        # initially we have not been anywhere
+        self.visited = [False] * g.V
+        # create a list to recods how we got to each vertext
+        # i.e its parent
+        self.parent = [-1] * g.V
+        self.dfs(s)
+
+    def dfs(self, v):
+        #we are at  vertex v so we have not visited it
+        # mark it as visited
+        self.visited[v] = True
+        #where can we go from vertex v?
+        for w in self.g.adj[v]:
+            # consider going to w
+            # only go if it is not already visited
+            if not self.visited[w]:
+                #before we go there, record where we are coming form
+                self.parent[w] = v
+                # contiue searching from w
+                self.dfs(w)
+
+    def hasPathTo(self, v):
+        # is v reachable from our stating point?
+        return self.visited[v]
+
+    # return th epath from s to v
+    def pathTo(self, v):
+        # if there is no path to v
+        if not self.hasPathTo(v):
+            return []
+        path = [v]
+        #while not back at the start
+        while v != self.s:
+            v = self.parent[v]
+            path.append(v)
+
+        #we have constructed v ---> s
+        #we want to return s ----> v
+        return path[::-1] # reverse the list
 #test data
 #!/usr/bin/env python3
 import sys
