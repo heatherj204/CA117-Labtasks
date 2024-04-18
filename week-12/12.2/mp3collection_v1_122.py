@@ -10,13 +10,19 @@ class MP3Track(object):
 class MP3Collection(object):
 
     def __init__(self):
-        self.d = {}
+        self.collection = {}
 
     def add(self, song):
-        self.d[song.duration] = song
+        self.collection[song.title] = song
 
-    def remove(self,):
-        del(self)
+    def remove(self, title):
+        if title in self.collection:
+            del(self.collection[title])
+
+    def lookup(self, title):
+        if title in self.collection:
+            return self.collection[title]
+        return None
 
 
 # test data
